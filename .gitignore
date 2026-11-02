@@ -1,0 +1,31 @@
+# Build output
+/release/
+/artifacts/
+/.artifacts/
+**/bin/
+**/obj/
+
+# Locally downloaded third-party release binaries
+/third_party/ValveResourceFormat/*
+!/third_party/ValveResourceFormat/README.md
+/third_party/ffmpeg/*
+!/third_party/ffmpeg/README.md
+
+# Generated helper executables and old standalone builds
+/tools/*.exe
+/S2FM Repair Manager.exe
+
+# Local diagnostics and user state
+/layout-*.json
+/layout-*.png
+/workshop-scan*.json
+/settings.json
+*.user
+*.suo
+*.log
+
+# IDE and OS files
+/.vs/
+/.vscode/
+.DS_Store
+Thumbs.db

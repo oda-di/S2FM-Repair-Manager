@@ -1,0 +1,42 @@
+name: Source checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Build manager
+        run: dotnet build .\app\S2FMRepairManager\S2FMRepairManager.csproj -c Release
+
+      - name: Build entity patcher
+        run: dotnet build .\tools\S2FMEntityPatcher\S2FMEntityPatcher.csproj -c Release
+
+      - name: Build VPK patcher
+        run: dotnet build .\tools\S2FMVpkPatcher\S2FMVpkPatcher.csproj -c Release
+
+      - name: Parse PowerShell scripts
+        shell: pwsh
+        run: |
+          $failed = $false
+          Get-ChildItem -LiteralPath $env:GITHUB_WORKSPACE -Filter '*.ps1' -File | ForEach-Object {
+            $tokens = $null
+            $errors = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$tokens, [ref]$errors)
+            foreach ($error in $errors) {
+              Write-Error "$($_.Name): $($error.Message)"
+              $failed = $true
+            }
+          }
+          if ($failed) { exit 1 }

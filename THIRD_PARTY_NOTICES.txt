@@ -1,0 +1,25 @@
+S2FM Repair Manager - Third-Party Notices
+==========================================
+
+ValveResourceFormat / Source 2 Viewer CLI 20.1
+------------------------------------------------
+Project: https://github.com/ValveResourceFormat/ValveResourceFormat
+Release: https://github.com/ValveResourceFormat/ValveResourceFormat/releases/tag/20.1
+License: MIT. The complete license text is included at
+tools/ValveResourceFormat/LICENSE.txt.
+
+FFmpeg N-128142-g28fda48e0b-20261028
+-------------------------------------
+Project: https://ffmpeg.org/
+Build provider: https://github.com/BtbN/FFmpeg-Builds
+Build asset: ffmpeg-master-latest-win64-lgpl-shared.zip
+License: LGPL 2.1 or later, with the licenses of the enabled external libraries.
+The binary is kept as a separate, unmodified command-line program and is not linked
+into S2FM Repair Manager. The distribution license text is included at
+tools/ffmpeg/LICENSE.txt. Corresponding FFmpeg source revision:
+https://github.com/FFmpeg/FFmpeg/commit/28fda48e0b
+
+Counter-Strike 2, Source 2, Source Filmmaker, Steam and Valve are trademarks or
+products of Valve Corporation. This repair kit is an independent community tool
+and is not affiliated with or endorsed by Valve Corporation.
+
